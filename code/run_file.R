@@ -8,7 +8,6 @@
 ## Additional Comments: 
 #############################################################################
 
-
 ############################################################
 # Setup
 ############################################################
@@ -328,140 +327,271 @@ screen_ttd <- sapply_withnames(screen_ageCD,
 ############################################################
 cat('\nConstructing results tables...')
 
-within_trials <- sapply_withnames(trials,
-                                   funX=function(x,
-                                                 times,
-                                                 control_ttcd,
-                                                 control_CoD,
-                                                 screen_ttcd,
-                                                 screen_CoD) {
-                                       tally_cuminc(followup=times,
-                                                    etimes=control_ttcd[[x]],
-                                                    event=control_CoD[[x]],
-                                                    etimes2=screen_ttcd[[x]],
-                                                    event2=screen_CoD[[x]])
-                                   }, 
-                                   times,
-                                   control_ttcd,
-                                   control_CoD,
-                                   screen_ttcd,
-                                   screen_CoD)
+# New results - 7/13/15
 
-across_controls <- sapply_withnames(trials[2:length(trials)],
-                                   funX=function(x,
-                                                 times,
-                                                 control_ttcd,
-                                                 control_CoD) {
-                                       tally_cuminc(followup=times,
-                                                    etimes=control_ttcd[[1]],
-                                                    event=control_CoD[[1]],
-                                                    etimes2=control_ttcd[[x]],
-                                                    event2=control_CoD[[x]])
-                                   }, 
-                                   times,
-                                   control_ttcd,
-                                   control_CoD)
+    control_cuminc <- tally_cuminc_simple(times, 
+                                      control_ttcd,
+                                      control_CoD)
+    screen_cuminc <- tally_cuminc_simple(times, 
+                                      screen_ttcd,
+                                      screen_CoD)
 
-across_screenings <- sapply_withnames(trials[2:length(trials)],
-                                   funX=function(x,
-                                                 times,
-                                                 screen_ttcd,
-                                                 screen_CoD) {
-                                       tally_cuminc(followup=times,
-                                                    etimes=screen_ttcd[[1]],
-                                                    event=screen_CoD[[1]],
-                                                    etimes2=screen_ttcd[[x]],
-                                                    event2=screen_CoD[[x]])
-                                   }, 
-                                   times,
-                                   screen_ttcd,
-                                   screen_CoD)
+# Construct rows of the table
 
-                         
-############################################################
-# Format and save a results table
-############################################################
-# There's probably a quicker way to do this if there's a way
-# to access the names in an sapply when USE.NAMES=TRUE
+    # Cumulative incidence
+    r1 <- lapply(control_cuminc, 
+                              summarize_over_sims, 
+                              funX='mean',
+                              onecell=TRUE,
+                              numdec=0)
+    r2 <- lapply(screen_cuminc, 
+                            summarize_over_sims, 
+                            funX='mean',
+                            onecell=TRUE,
+                            numdec=0)
 
-for (i in 1:length(trials)) {
-    within_trials[[i]] <- 
-        cbind(data.frame(Trial=names(within_trials)[i], 
-                         Effect='Effect of screening, same treatment'),
-              within_trials[[i]])
-    if (i==1) final_table <- within_trials[[i]] 
-    else final_table <- rbind(final_table, within_trials[[i]])
-}
+    # Within-trial MRR
+    wtmrr <- sapply_withnames(names(control_cuminc),
+                              funX=function(x) {
+                                screen_cuminc[[x]]/
+                                  control_cuminc[[x]]
+                              })
+    r3 <- lapply(wtmrr,                             
+                 summarize_over_sims, 
+                 funX='mean',
+                 onecell=TRUE,
+                 numdec=2)
 
-for (i in 1:(length(trials)-1)) {
-    across_controls[[i]] <-
-        cbind(data.frame(Trial=names(across_controls)[i],
-                         Effect='Effect of treatment, without screening'),
-              across_controls[[i]])
-    across_screenings[[i]] <-
-        cbind(data.frame(Trial=names(across_screenings)[i],
-                         Effect='Effect of treatment, with screening'),
-              across_screenings[[i]])
-    final_table <- rbind(final_table,
-                         across_controls[[i]],
-                         across_screenings[[i]])
-}
+    # Across-trial MRR, 
+    atmrr_noscreen <- sapply_withnames(names(control_cuminc),
+                                       funX=function(x){
+                                         control_cuminc[[x]]/
+                                           control_cuminc[[x]][,1]
+                                       })
+    atmrr_screen <- sapply_withnames(names(control_cuminc),
+                                       funX=function(x){
+                                         screen_cuminc[[x]]/
+                                           control_cuminc[[x]][,1]
+                                       })
+    r4 <- lapply(atmrr_noscreen,                             
+                 summarize_over_sims, 
+                 funX='mean',
+                 onecell=TRUE,
+                 numdec=2)
+    r5 <- lapply(atmrr_screen,                             
+                 summarize_over_sims, 
+                 funX='mean',
+                 onecell=TRUE,
+                 numdec=2)
 
-# Format out . in column name
-colnames(final_table) <- gsub('\\.', ' ', colnames(final_table))
-colnames(final_table) <- gsub(' Up', '-Up', colnames(final_table))
+    # Within-trial ARR
+    wtarr <- sapply_withnames(names(control_cuminc),
+                              funX=function(x) {
+                                control_cuminc[[x]]-
+                                  screen_cuminc[[x]]
+                              })
+    r6 <- lapply(wtarr,                             
+                 summarize_over_sims, 
+                 funX='mean',
+                 onecell=TRUE,
+                 numdec=1)
+    
+    # Across-trial MRR, 
+    atarr_noscreen <- sapply_withnames(names(control_cuminc),
+                                       funX=function(x){
+                                         replicate(length(trials),
+                                                   control_cuminc[[x]][,1]) -
+                                         control_cuminc[[x]]
+                                       })
+    atarr_screen <- sapply_withnames(names(control_cuminc),
+                                     funX=function(x){
+                                       replicate(length(trials),
+                                                 control_cuminc[[x]][,1]) -
+                                         screen_cuminc[[x]]
+                                     })
+    r7 <- lapply(atarr_noscreen,                             
+                 summarize_over_sims, 
+                 funX='mean',
+                 onecell=TRUE,
+                 numdec=1)
+    r8 <- lapply(atarr_screen,                             
+                 summarize_over_sims, 
+                 funX='mean',
+                 onecell=TRUE,
+                 numdec=1)
+
+# Compile across follow-up times
+
+new_table <- lapply(names(control_cuminc), 
+                function(x) {
+                  empty_row = rep('', length(trials))
+                  tab = data.frame(rbind(empty_row,
+                        r1[[x]],r2[[x]],r3[[x]],
+                        empty_row,
+                        r4[[x]],r5[[x]],r6[[x]],
+                        empty_row,
+                        r7[[x]], r8[[x]]))
+                  tab = data.frame(`Follow-up`=c(as.character(x),
+                                               rep('', nrow(tab)-1)),
+                                   Measure=c('Cumulative breast cancer mortality',
+                                             '', '', 
+                                             'MRRs within trials',
+                                             'MRRs across trials', '', '', 
+                                             'ARRs within trials', 
+                                             'ARRs across trials', '', ''),
+                                   SubMeasure=c('','No screening', 'Screening', 
+                                                '', '', 'No screening', 'Screening', 
+                                                '', '', 'No screening', 'Screening'),
+                                   tab,
+                                   check.names=FALSE)
+                })
+
+new_table_full <- do.call('rbind', new_table)
 
 # Save
-write.csv(final_table,
+write.csv(new_table_full,
           file.path(base_path, model_version, 'output', 
-                    'cuminc_mrr_full.csv'),
-          row.names=FALSE)
-write.csv(subset(final_table, `Follow-Up Year`==max(times)),
-          file.path(base_path, model_version, 'output', 
-                    paste0('cuminc_mrr_', max(times), '.csv')),
+                    'cuminc_mrr_newtable.csv'),
           row.names=FALSE)
 
 
-############################################################
-# Graph cumulative incidence
-############################################################
-cat('\nConstructing results graphs...')
+# Old results
+if (1==0) {
+    within_trials <- sapply_withnames(trials,
+                                       funX=function(x,
+                                                     times,
+                                                     control_ttcd,
+                                                     control_CoD,
+                                                     screen_ttcd,
+                                                     screen_CoD) {
+                                           tally_cuminc(followup=times,
+                                                        etimes=control_ttcd[[x]],
+                                                        event=control_CoD[[x]],
+                                                        etimes2=screen_ttcd[[x]],
+                                                        event2=screen_CoD[[x]])
+                                       }, 
+                                       times,
+                                       control_ttcd,
+                                       control_CoD,
+                                       screen_ttcd,
+                                       screen_CoD)
+    
+    across_controls <- sapply_withnames(trials[2:length(trials)],
+                                       funX=function(x,
+                                                     times,
+                                                     control_ttcd,
+                                                     control_CoD) {
+                                           tally_cuminc(followup=times,
+                                                        etimes=control_ttcd[[1]],
+                                                        event=control_CoD[[1]],
+                                                        etimes2=control_ttcd[[x]],
+                                                        event2=control_CoD[[x]])
+                                       }, 
+                                       times,
+                                       control_ttcd,
+                                       control_CoD)
+    
+    across_screenings <- sapply_withnames(trials[2:length(trials)],
+                                       funX=function(x,
+                                                     times,
+                                                     screen_ttcd,
+                                                     screen_CoD) {
+                                           tally_cuminc(followup=times,
+                                                        etimes=screen_ttcd[[1]],
+                                                        event=screen_CoD[[1]],
+                                                        etimes2=screen_ttcd[[x]],
+                                                        event2=screen_CoD[[x]])
+                                       }, 
+                                       times,
+                                       screen_ttcd,
+                                       screen_CoD)
 
-cuminc_table <- subset(final_table, 
-                       grepl('Cumulative Incidence', final_table$Measure) &
-                       Effect=='Effect of screening, same treatment')
-cuminc_table <- transform(cuminc_table, check.names=FALSE,
-                          Arm = ifelse(grepl('Group 0', Measure), 
-                                       'Control', 
-                                       'Screening'))
 
-# A hack
-if (model_version=='breast_ER-HER_5') {
-    cuminc_table$Trial[cuminc_table$Trial=='Contemp1999'] <- '1999'
+
+    ############################################################
+    # Format and save a results table
+    ############################################################
+    # There's probably a quicker way to do this if there's a way
+    # to access the names in an sapply when USE.NAMES=TRUE
+    
+    for (i in 1:length(trials)) {
+        within_trials[[i]] <- 
+            cbind(data.frame(Trial=names(within_trials)[i], 
+                             Effect='Effect of screening, same treatment'),
+                  within_trials[[i]])
+        if (i==1) final_table <- within_trials[[i]] 
+        else final_table <- rbind(final_table, within_trials[[i]])
+    }
+    
+    for (i in 1:(length(trials)-1)) {
+        across_controls[[i]] <-
+            cbind(data.frame(Trial=names(across_controls)[i],
+                             Effect='Effect of treatment, without screening'),
+                  across_controls[[i]])
+        across_screenings[[i]] <-
+            cbind(data.frame(Trial=names(across_screenings)[i],
+                             Effect='Effect of treatment, with screening'),
+                  across_screenings[[i]])
+        final_table <- rbind(final_table,
+                             across_controls[[i]],
+                             across_screenings[[i]])
+    }
+    
+    # Format out . in column name
+    colnames(final_table) <- gsub('\\.', ' ', colnames(final_table))
+    colnames(final_table) <- gsub(' Up', '-Up', colnames(final_table))
+    
+    # Save
+    write.csv(final_table,
+              file.path(base_path, model_version, 'output', 
+                        'cuminc_mrr_full.csv'),
+              row.names=FALSE)
+    write.csv(subset(final_table, `Follow-Up Year`==max(times)),
+              file.path(base_path, model_version, 'output', 
+                        paste0('cuminc_mrr_', max(times), '.csv')),
+              row.names=FALSE)
+
+    ############################################################
+    # Graph cumulative incidence
+    ############################################################
+    cat('\nConstructing results graphs...')
+    
+    cuminc_table <- subset(final_table, 
+                           grepl('Cumulative Incidence', final_table$Measure) &
+                           Effect=='Effect of screening, same treatment')
     cuminc_table <- transform(cuminc_table, check.names=FALSE,
-                              Trial=factor(Trial, 
-                                           levels=c('Historical', 
-                                                    '1999', 
-                                                    'Perfect'),
-                                           labels=c('Historical', 
-                                                    '1999', 
-                                                    'Perfect')))
-}
+                              Arm = ifelse(grepl('Group 0', Measure), 
+                                           'Control', 
+                                           'Screening'))
+    
+    # A hack
+    if (model_version=='breast_ER-HER_5') {
+        cuminc_table$Trial[cuminc_table$Trial=='Contemp1999'] <- '1999'
+        cuminc_table <- transform(cuminc_table, check.names=FALSE,
+                                  Trial=factor(Trial, 
+                                               levels=c('Historical', 
+                                                        '1999', 
+                                                        'Perfect'),
+                                               labels=c('Historical', 
+                                                        '1999', 
+                                                        'Perfect')))
+    }
+    
+    cuminc_plot <- ggplot(cuminc_table,
+                          aes(x=`Follow-Up Year`,
+                              y=Estimate,
+                              colour=Trial,
+                              shape=Arm)) + 
+                   geom_line() +
+                   geom_point(size=3) + 
+                   scale_y_continuous(name='Cumulative Incidence')
+    
+    ggsave(plot=cuminc_plot,
+           filename=file.path(base_path, model_version, 'output',
+                              'cuminc_plot.pdf'),
+           width=6, height=5)
 
-cuminc_plot <- ggplot(cuminc_table,
-                      aes(x=`Follow-Up Year`,
-                          y=Estimate,
-                          colour=Trial,
-                          shape=Arm)) + 
-               geom_line() +
-               geom_point(size=3) + 
-               scale_y_continuous(name='Cumulative Incidence')
-
-ggsave(plot=cuminc_plot,
-       filename=file.path(base_path, model_version, 'output',
-                          'cuminc_plot.pdf'),
-       width=6, height=5)
-
+} # End commenting out old results
 
 ############################################################
 # Validate model: Age-specific cancer mortality rates,
