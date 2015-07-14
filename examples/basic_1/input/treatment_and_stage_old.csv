@@ -1,0 +1,7 @@
+stage,tx_old,prop
+Early,None,0.49
+Early,Tamoxifen,0
+Early,Chemo,0
+Advanced,None,0.408
+Advanced,Tamoxifen,0
+Advanced,Chemo,0.102

@@ -1,0 +1,12 @@
+,V1
+version,breast_ER-HER2_4
+data,mostly JNCI monograph
+sampling,N/A
+model_method,15% stage shift
+design,"three trials: historical, 1999, perfect"
+stage,early and advanced
+prognostic_factors,"ER, HER2"
+treatments,"None, Tamoxifen, Chemo, Tamoxifen+Chemo, Chemo+Trastuzumab, Tamoxifen+Trastuzumab, then AI instead of Tamoxifen in Perfect"
+efficacies,"from EBTCG, Cochrane-Trazt=0.66 for early, 0.82 for advanced, 0.86 for AI"
+life_table,BMD
+other,like _3 but with AI not tamoxifen in perfect trial

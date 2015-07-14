@@ -1,0 +1,31 @@
+"Page type","Sex","Summary Interval","N","Cause-Spec","SE Cause-Spec","Cause-Spec Cum CI Lower","Cause-Spec Cum CI Upper"
+"Survival Summary Page",Male and female,12 mo,23047,44.6%,0.3%,44.0%,45.3%
+"Survival Summary Page",Male and female,24 mo,23047,29.5%,0.3%,28.9%,30.1%
+"Survival Summary Page",Male and female,36 mo,23047,23.6%,0.3%,23.0%,24.2%
+"Survival Summary Page",Male and female,48 mo,23047,20.3%,0.3%,19.8%,20.9%
+"Survival Summary Page",Male and female,60 mo,23047,18.5%,0.3%,17.9%,19.0%
+"Survival Summary Page",Male and female,72 mo,23047,17.0%,0.3%,16.5%,17.5%
+"Survival Summary Page",Male and female,84 mo,23047,15.9%,0.3%,15.4%,16.4%
+"Survival Summary Page",Male and female,96 mo,23047,14.9%,0.3%,14.4%,15.4%
+"Survival Summary Page",Male and female,108 mo,23047,14.2%,0.3%,13.7%,14.7%
+"Survival Summary Page",Male and female,120 mo,23047,13.6%,0.3%,13.1%,14.2%
+"Survival Summary Page",Male,12 mo,13145,41.6%,0.4%,40.8%,42.5%
+"Survival Summary Page",Male,24 mo,13145,26.4%,0.4%,25.6%,27.1%
+"Survival Summary Page",Male,36 mo,13145,21.0%,0.4%,20.2%,21.7%
+"Survival Summary Page",Male,48 mo,13145,17.9%,0.4%,17.2%,18.6%
+"Survival Summary Page",Male,60 mo,13145,16.3%,0.3%,15.7%,17.0%
+"Survival Summary Page",Male,72 mo,13145,14.9%,0.3%,14.3%,15.6%
+"Survival Summary Page",Male,84 mo,13145,14.0%,0.3%,13.4%,14.7%
+"Survival Summary Page",Male,96 mo,13145,13.3%,0.3%,12.7%,14.0%
+"Survival Summary Page",Male,108 mo,13145,12.7%,0.3%,12.1%,13.4%
+"Survival Summary Page",Male,120 mo,13145,12.1%,0.3%,11.5%,12.8%
+"Survival Summary Page",Female,12 mo,9902,48.5%,0.5%,47.5%,49.5%
+"Survival Summary Page",Female,24 mo,9902,33.5%,0.5%,32.6%,34.5%
+"Survival Summary Page",Female,36 mo,9902,27.0%,0.5%,26.1%,27.9%
+"Survival Summary Page",Female,48 mo,9902,23.5%,0.4%,22.6%,24.4%
+"Survival Summary Page",Female,60 mo,9902,21.2%,0.4%,20.4%,22.1%
+"Survival Summary Page",Female,72 mo,9902,19.6%,0.4%,18.8%,20.5%
+"Survival Summary Page",Female,84 mo,9902,18.4%,0.4%,17.6%,19.2%
+"Survival Summary Page",Female,96 mo,9902,17.1%,0.4%,16.3%,17.9%
+"Survival Summary Page",Female,108 mo,9902,16.2%,0.4%,15.4%,17.0%
+"Survival Summary Page",Female,120 mo,9902,15.6%,0.4%,14.8%,16.4%

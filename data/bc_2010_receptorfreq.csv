@@ -1,0 +1,26 @@
+ER_Status,HER2_Status,S_0,S_I,S_IIA,S_IIB,S_IIINOS,S_IIIA,S_IIIB,S_IIIC,S_IV,S_NA,S_UNK_Stage,S_Blank
+Positive,Positive,4,2387,1411,715,5,448,156,247,442,0,225,0
+Positive,Negative,1,25204,9963,4123,45,2464,575,1191,1785,4,1122,0
+Positive,Borderline,1,730,346,148,2,85,27,42,93,0,58,0
+Positive,Unknown,11,1057,241,99,2,54,27,26,130,1,141,0
+Positive,Not 2010+ Breast,0,0,0,0,0,0,0,0,0,0,0,0
+Negative,Positive,6,1052,668,390,3,262,138,173,266,0,131,0
+Negative,Negative,2,2993,2195,945,15,499,254,314,455,22,221,0
+Negative,Borderline,0,101,57,25,0,13,10,13,26,0,9,0
+Negative,Unknown,34,246,61,30,0,10,15,11,24,2,42,0
+Negative,Not 2010+ Breast,0,0,0,0,0,0,0,0,0,0,0,0
+Borderline,Positive,0,9,5,1,0,2,0,0,0,0,2,0
+Borderline,Negative,0,11,10,6,0,3,0,0,2,0,5,0
+Borderline,Borderline,0,2,2,0,0,1,0,0,0,0,0,0
+Borderline,Unknown,0,2,0,0,0,0,0,2,1,0,0,0
+Borderline,Not 2010+ Breast,0,0,0,0,0,0,0,0,0,0,0,0
+Unknown,Positive,0,13,12,3,0,1,2,1,7,0,7,0
+Unknown,Negative,1,76,22,13,1,2,2,5,29,0,11,0
+Unknown,Borderline,0,7,1,0,0,0,0,0,2,0,2,0
+Unknown,Unknown,21,864,367,172,11,66,39,39,378,55,920,0
+Unknown,Not 2010+ Breast,0,0,0,0,0,0,0,0,0,0,0,0
+Not 1990+ Breast,Positive,0,0,0,0,0,0,0,0,0,0,0,0
+Not 1990+ Breast,Negative,0,0,0,0,0,0,0,0,0,0,0,0
+Not 1990+ Breast,Borderline,0,0,0,0,0,0,0,0,0,0,0,0
+Not 1990+ Breast,Unknown,0,0,0,0,0,0,0,0,0,0,0,0
+Not 1990+ Breast,Not 2010+ Breast,0,0,0,0,0,0,0,0,0,0,0,0

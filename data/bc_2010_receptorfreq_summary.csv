@@ -1,0 +1,7 @@
+"ER_Status","HER2_Status","Early","Advanced","Source"
+"Negative/Borderline",NA,7414,3909,"SEER 2010. Early=AJCC I&IIA, Advanced=AJCC IIB-IV. Excludes unknown stage, and in each aggregation, unknown receptors."
+"Positive",NA,41339,12931,"When HER2=NA, numbers reflect marginal over all HER2 including the unknowns"
+"Negative/Borderline","Negative/Borderline",5371,2581,""
+"Positive","Negative/Borderline",36243,10580,""
+"Negative/Borderline","Positive",1734,1235,""
+"Positive","Positive",3798,2013,""

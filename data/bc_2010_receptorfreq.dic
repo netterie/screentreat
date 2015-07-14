@@ -1,0 +1,58 @@
+[System]
+Output filename=Z:\screentreat\data\bc_2010_receptorfreq.txt
+Matrix filename=Z:\screentreat\data\bc_2010_receptorfreq.sfm
+Database name=Incidence - SEER 18 Regs Research Data + Hurricane Katrina Impacted Louisiana Cases, Nov 2013 Sub (1973-2011 varying) - Linked To County Attributes - Total U.S., 1969-2012 Counties
+
+[Session Options]
+Type=Frequency
+RatesAsCasesPer=100000
+
+[Export Options]
+GZipped=false
+Variable format=numeric
+File format=DOS/Windows
+Field delimiter=comma
+Missing character=space
+Fields with delimiter in quotes=false
+Remove thousands separators=true
+Flags included=true
+Variable names included=true
+Column Variables as Stats=false
+
+[Variables]
+Var1Name=ER Status Recode Breast Cancer (1990+)
+Var1Dimension=Row
+Var2Name=Derived HER2 Recode (2010+)
+Var2Dimension=Row
+Var3Name=Breast - Adjusted AJCC 6th Stage (1988+)
+Var3Dimension=Column
+Var4Name=Count
+
+[Format=ER Status Recode Breast Cancer (1990+)]
+0=Positive
+1=Negative
+2=Borderline
+3=Unknown
+4=Not 1990+ Breast
+
+[Format=Derived HER2 Recode (2010+)]
+0=Positive
+1=Negative
+2=Borderline
+3=Unknown
+4=Not 2010+ Breast
+
+[Format=Breast - Adjusted AJCC 6th Stage (1988+)]
+0=0
+1=I
+2=IIA
+3=IIB
+4=IIINOS
+5=IIIA
+6=IIIB
+7=IIIC
+8=IV
+9=NA
+10=UNK Stage
+11=Blank(s)
+

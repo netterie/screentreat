@@ -1,0 +1,81 @@
+[System]
+Output filename=Z:\screentreat\data\bc_1975-1979_survival.txt
+Matrix filename=Z:\screentreat\data\bc_1975-1979_survival.ssm
+Database name=Incidence - SEER 18 Regs Research Data + Hurricane Katrina Impacted Louisiana Cases, Nov 2013 Sub (1973-2011 varying) - Linked To County Attributes - Total U.S., 1969-2012 Counties
+
+[Session Options]
+Type=Survival
+Rate filename=U.S. 1970-2009 by individual year (White, Black, Other (AI/API), Ages 0-99, All races for Other Unspec 1991+ and Unknown)
+Statistic=Cause-Specific Survival
+SurvivalMethod=KaplanMeier
+SurvivalBeginMonth=Month of diagnosis recode
+SurvivalBeginYear=Year of diagnosis
+SurvivalEndMonth=Month of follow-up recode
+SurvivalEndYear=Year of follow-up recode
+SurvivalVitalStatus=Vital status recode (study cutoff used)
+StudyCutoffDate=12/2011
+LostToFollowupDate=12/2011
+NumberOfIntervals=240
+MonthsPerInterval=1
+RatesDisplayedAs=Percents
+
+[Export Options]
+GZipped=false
+Variable format=numeric
+File format=DOS/Windows
+Field delimiter=comma
+Missing character=space
+Fields with delimiter in quotes=false
+Remove thousands separators=true
+Flags included=true
+Variable names included=true
+Column Variables as Stats=false
+
+[Summary Page Variables]
+Var1Name=Page type
+Var2Name=SEER historic stage A
+Var3Name=Summary Interval
+Var4Name=N
+Var5Name=Cause-Spec
+Var6Name=SE Cause-Spec
+Var7Name=Cause-Spec Cum CI Lower
+Var8Name=Cause-Spec Cum CI Upper
+
+[Format=Page type]
+0=Life Page
+1=Summary Page
+2=Z-Statistics Page
+3=Period Life Page
+4=Period Summary Page
+
+[Format=SEER historic stage A]
+0=In situ
+1=Localized
+2=Regional
+3=Distant
+4=Localized/regional (Prostate cases)
+5=Unstaged
+6=Blank(s)
+
+[Format=Summary Interval]
+0=12 mo
+1=24 mo
+2=36 mo
+3=48 mo
+4=60 mo
+5=72 mo
+6=84 mo
+7=96 mo
+8=108 mo
+9=120 mo
+10=132 mo
+11=144 mo
+12=156 mo
+13=168 mo
+14=180 mo
+15=192 mo
+16=204 mo
+17=216 mo
+18=228 mo
+19=240 mo
+

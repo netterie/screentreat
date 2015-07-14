@@ -1,0 +1,7 @@
+"ER_Status","HER2_Status","Early","Advanced","Source"
+"Negative/Borderline",NA,7031,4677,"SEER 2010. Early=Localized, Advanced=Regional+Distant. Excludes unknown stage, and in each aggregation, unknown receptors."
+"Positive",NA,37280,18241,"When HER2=NA, numbers reflect marginal over all HER2 including the unknowns"
+"Negative/Borderline","Negative/Borderline",5085,3072,""
+"Positive","Negative/Borderline",32571,15218,""
+"Negative/Borderline","Positive",1591,1494,""
+"Positive","Positive",3429,2565,""

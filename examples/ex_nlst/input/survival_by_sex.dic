@@ -1,0 +1,43 @@
+[System]
+Output filename=H:\projects\cantrance\screening\ex_nlst\input\survival_by_sex.txt
+Matrix filename=survival_by_sex Matrix-1
+Database name=Incidence - SEER 18 Regs Research Data + Hurricane Katrina Impacted Louisiana Cases, Nov 2012 Sub (1973-2010 varying) - Linked To County Attributes - Total U.S., 1969-2011 Counties
+
+[Session Options]
+Type=Survival
+Rate filename=U.S. 1970-2007 by individual year (White, Black, Other (AI/API) All races for Other Unspec 1991+ and Unknown)
+Statistic=Cause-Specific Survival
+SurvivalMethod=Actuarial
+SurvivalBeginMonth=Month of diagnosis recode
+SurvivalBeginYear=Year of diagnosis
+SurvivalEndMonth=Month of follow-up recode
+SurvivalEndYear=Year of follow-up recode
+SurvivalVitalStatus=Vital status recode (study cutoff used)
+StudyCutoffDate=12/2010
+LostToFollowupDate=12/2010
+NumberOfIntervals=120
+MonthsPerInterval=1
+RatesDisplayedAs=Percents
+
+[Export Options]
+GZipped=false
+Variable format=labels
+File format=DOS/Windows
+Field delimiter=comma
+Missing character=space
+Fields with delimiter in quotes=true
+Remove thousands separators=true
+Flags included=true
+Variable names included=true
+Column Variables as Stats=true
+
+[Summary Page Variables]
+Var1Name=Page type
+Var2Name=Sex
+Var3Name=Summary Interval
+Var4Name=N
+Var5Name=Cause-Spec
+Var6Name=SE Cause-Spec
+Var7Name=Cause-Spec Cum CI Lower
+Var8Name=Cause-Spec Cum CI Upper
+

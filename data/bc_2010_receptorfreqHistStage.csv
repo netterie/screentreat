@@ -1,0 +1,26 @@
+ER_Status,HER2_Status,In situ,Localized,Regional,Distant,Localized/regional (Prostate cases),Unstaged,Blank(s)
+Positive,Positive,0,3429,1948,617,0,46,0
+Positive,Negative,0,31589,12328,2354,0,206,0
+Positive,Borderline,0,982,415,121,0,14,0
+Positive,Unknown,0,1280,307,151,0,51,0
+Positive,Not 2010+ Breast,0,0,0,0,0,0,0
+Negative,Positive,0,1579,1048,439,0,23,0
+Negative,Negative,0,4907,2217,741,0,50,0
+Negative,Borderline,0,153,63,34,0,4,0
+Negative,Unknown,0,353,69,39,0,14,0
+Negative,Not 2010+ Breast,0,0,0,0,0,0,0
+Borderline,Positive,0,12,7,0,0,0,0
+Borderline,Negative,0,21,13,3,0,0,0
+Borderline,Borderline,0,4,1,0,0,0,0
+Borderline,Unknown,0,2,2,1,0,0,0
+Borderline,Not 2010+ Breast,0,0,0,0,0,0,0
+Unknown,Positive,0,19,14,11,0,2,0
+Unknown,Negative,0,95,29,32,0,6,0
+Unknown,Borderline,0,9,1,2,0,0,0
+Unknown,Unknown,0,1467,459,414,0,592,0
+Unknown,Not 2010+ Breast,0,0,0,0,0,0,0
+Not 1990+ Breast,Positive,0,0,0,0,0,0,0
+Not 1990+ Breast,Negative,0,0,0,0,0,0,0
+Not 1990+ Breast,Borderline,0,0,0,0,0,0,0
+Not 1990+ Breast,Unknown,0,0,0,0,0,0,0
+Not 1990+ Breast,Not 2010+ Breast,0,0,0,0,0,0,0

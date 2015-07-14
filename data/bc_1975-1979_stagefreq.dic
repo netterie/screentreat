@@ -1,0 +1,38 @@
+[System]
+Output filename=Z:\screentreat\data\bc_1975-1979_stagefreq.txt
+Matrix filename=Z:\screentreat\data\bc_1975-1979_stagefreq.sfm
+Database name=Incidence - SEER 18 Regs Research Data + Hurricane Katrina Impacted Louisiana Cases, Nov 2013 Sub (1973-2011 varying) - Linked To County Attributes - Total U.S., 1969-2012 Counties
+
+[Session Options]
+Type=Frequency
+RatesAsCasesPer=100000
+
+[Export Options]
+GZipped=false
+Variable format=numeric
+File format=DOS/Windows
+Field delimiter=comma
+Missing character=space
+Fields with delimiter in quotes=false
+Remove thousands separators=true
+Flags included=true
+Variable names included=true
+Column Variables as Stats=false
+
+[Variables]
+Var1Name=SEER historic stage A
+Var1Dimension=Row
+Var2Name=Count
+Var3Name=Column Percent
+Var4Name=Cumulative Column Percent
+
+[Format=SEER historic stage A]
+0=In situ
+1=Localized
+2=Regional
+3=Distant
+4=Localized/regional (Prostate cases)
+5=Unstaged
+6=Blank(s)
+7=Total
+
