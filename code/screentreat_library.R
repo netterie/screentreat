@@ -287,26 +287,76 @@ summarize_over_sims = function# Return the mean and 95% interval over sims
 ##represented as columns
 
 (data,
-    ### Matrix, with columns as different sims
+    ### Matrix, with columns (default) or rows as different sims
  funX,
     ### Function to apply to columns, e.g. 'mean' or 'sum'
  ...,
     ### Optional arguments to mean and quantile, e.g. 'na.rm=TRUE'
+ applyto=2,
+    ### 2=columns, 1=rows
+ onecell=FALSE,
+    ### Old format - UI in separate column
  numdec=4
     ### Rounding
 ) {
-
-    estimates <- apply(data, 2, funX)
-    return(data.frame(Estimate=round(mean(estimates, ...),numdec),
-                      UI=paste0('(',
-                                paste(round(quantile(estimates, 
-                                               probs=c(0.25, 0.975),
-                                               ...),numdec),
-                                      collapse=','),
-                                ')')))
     
+    fixdec <- function(x, k) format(round(x, k), nsmall=k)
+  
+    estimates <- apply(data, applyto, funX)
+  
+    if (onecell)  {
+      ci <- apply(data, applyto, quantile, probs=c(0.025, 0.975))
+      returnvector <- paste0(fixdec(estimates, numdec), 
+                             ' (',
+                             paste(fixdec(ci[1,],numdec),
+                                    fixdec(ci[2,], numdec),
+                                   sep=','),
+                             ')')
+      names(returnvector) <- names(estimates)
+      return(returnvector)
+    } else {
+      return(data.frame(Estimate=round(mean(estimates, ...),numdec),
+                        UI=paste0('(',
+                                  paste(round(quantile(estimates, 
+                                                       probs=c(0.025, 0.975),
+                                                       ...),numdec),
+                                        collapse=','),
+                                  ')')))
+      
+    }
 }
 
+ 
+############################################################
+## tally_cuminc_simple
+############################################################
+
+tally_cuminc_simple = function# Return cumulative incidence
+ 
+##description<< For specified follow-up times, return cumulative
+##incidence of event across all trials and arms and sims
+ 
+(followup,
+    ### Vector of follow-up times
+ etimes,
+    ### List of matrices of times to event
+ event,
+    ### List of matrices of event indicators (1==yes, 0=no)
+ per=10000
+    ### Denominator for cumulative incidence
+) {
+    cuminc <- lapply(followup,
+                     function(x) {
+                       sapply(names(etimes), function(y) {
+                         cd_by_x <- etimes[[y]]<x & event[[y]]==1
+                         (colSums(cd_by_x)/nrow(cd_by_x))*per
+                       })
+                     })  
+    
+    names(cuminc) <- followup
+    return(cuminc)
+}
+ 
 ############################################################
 ## tally_cuminc
 ############################################################
