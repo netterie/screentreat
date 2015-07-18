@@ -17,8 +17,9 @@
 if (!'using_wrapper'%in%ls()) {
     warning('Empyting the workspace')
     rm(list=ls())
-    model_version <- 'breast_ER-HER2_6'
-    base_path <- '~/screentreat/examples'
+    model_version <- 'breast_ER-HER2_6Weib'
+    rootdir <- '~'
+    base_path <- file.path(rootdir, '/screentreat/examples')
 }
 
 ############################################################
@@ -71,7 +72,7 @@ treat_chars = read.csv(treat_file, header=TRUE,
                         stringsAsFactors=FALSE)
 
 # Survival distribuion: exponential or weibull?
-surv_distr = 'exponential'
+surv_distr = 'weibull'
 
 # Baseline mortality rates and population proportions by
 # subgroup-stages. Subgroup stages specified here must
@@ -82,7 +83,8 @@ control_notreat = data.frame(stage=c(rep('Early',4),
                                             'ER+HER2-',
                                             'ER-HER2+',
                                             'ER-HER2-'),2),
-                             mortrate=c(rep(.01992,4),rep(0.10693, 4)),
+                             mortshape=c(rep(1.019, 4), rep(0.68, 4)),  ## For Weibull distribution
+                             mortscale=c(rep(50.699,4),rep(14.810, 4)), ##
                              prop=c(0.04, 0.38, 0.02, 0.06,
                                     0.06, 0.34, 0.03, 0.07))
 

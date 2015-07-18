@@ -215,13 +215,36 @@ for (t in trials) {
 ############################################################
 cat('\nSimulating mortality...')
 
-# Baseline mortality rates by stage-subgroup
-control_baserate <- return_value_from_id(id=control_notreat_rows, 
-                                     df=control_notreat,
-                                     value='mortrate')
-screen_baserate <- return_value_from_id(id=screen_notreat_rows, 
-                                     df=control_notreat,
-                                     value='mortrate')
+if (surv_distr=='exponential') {
+    # Baseline mortality rates by stage-subgroup
+    control_baserate <- return_value_from_id(id=control_notreat_rows, 
+                                         df=control_notreat,
+                                         value='mortrate')
+    screen_baserate <- return_value_from_id(id=screen_notreat_rows, 
+                                         df=control_notreat,
+                                         value='mortrate')
+} else if (surv_distr=='weibull') {
+
+    # Helper function: given paramaters for a weibull distribution and a hazard ratio, 
+    # outputs new scale parameter incorporating the hazard ratio
+    weibRRcalc <- function(shape, scale, RR){
+      return(scale/(RR^(1/shape)))
+    }
+
+    #Baseline mortality weibull paramaters by stage-subgroup
+    control_baseshape <- return_value_from_id(id=control_notreat_rows, 
+                                              df=control_notreat,
+                                              value='mortshape')
+    screen_baseshape <- return_value_from_id(id=screen_notreat_rows, 
+                                             df=control_notreat,
+                                             value='mortshape')
+    control_basescale <- return_value_from_id(id=control_notreat_rows, 
+                                              df=control_notreat,
+                                              value='mortscale')
+    screen_basescale <- return_value_from_id(id=screen_notreat_rows, 
+                                             df=control_notreat,
+                                             value='mortscale')
+}
 
 # Treatment HRs
 control_HRs <- sapply_withnames(control_treatments, 
@@ -233,32 +256,70 @@ screen_HRs <- sapply_withnames(screen_treatments,
                                treat_chars, 
                                'HR')
 
-# Final mortality rate
-control_rate <- sapply_withnames(control_HRs, 
-                                 funX=function(x, rate) { x*rate }, 
-                                 control_baserate)
-screen_rate <- sapply_withnames(screen_HRs, 
-                                funX=function(x, rate) { x*rate }, 
-                                screen_baserate)
+if (surv_distr=='exponential') {
+    # Final mortality rate
+    control_rate <- sapply_withnames(control_HRs, 
+                                     funX=function(x, rate) { x*rate }, 
+                                     control_baserate)
+    screen_rate <- sapply_withnames(screen_HRs, 
+                                    funX=function(x, rate) { x*rate }, 
+                                    screen_baserate)
+} else if (surv_distr=='weibull') {
+    # Final mortality scale parameter
+    control_scale <- sapply_withnames(control_HRs, 
+                                      funX=function(x, shape, scale){weibRRcalc(shape, scale, x)}, 
+                                      control_baseshape,
+                                      control_basescale)
+    screen_scale <- sapply_withnames(screen_HRs, 
+                                     funX=function(x, shape, scale){weibRRcalc(shape, scale, x)}, 
+                                     screen_baseshape,
+                                     screen_basescale)
+}
 
 # Simulate time from ageclin to cancer death for the 1st control group
-clin2cd <- matrix(rexp(n=rep(1,pop_size*nsim), rate=control_rate[[1]]),
+if (surv_distr=='exponential') {
+    clin2cd <- matrix(rexp(n=rep(1,pop_size*nsim), rate=control_rate[[1]]),
                nrow=pop_size, ncol=nsim)
+} else if (surv_distr=='weibull') {
+    clin2cd <- matrix(rweibull(n=rep(1,pop_size*nsim), shape=control_baseshape[[1]], scale=control_scale[[1]]),
+                      nrow=pop_size, ncol=nsim)
+}
 
 # Now for other groups
 # For the first control group, we will just get back the same times,
 # i.e. ttcd==control_ttcd[[1]]
-control_clin2cd <- sapply_withnames(control_rate, 
-                                 funX=sim_same_qexp, 
-                                 oldtime=clin2cd, 
-                                 oldrate=control_rate[[1]], 
-                                 prefix='control')
-screen_clin2cd <- sapply_withnames(screen_rate, 
-                                funX=sim_same_qexp, 
-                                oldtime=clin2cd, 
-                                oldrate=control_rate[[1]], 
-                                prefix='screen')
-                      
+if (surv_distr=='exponential') {
+    control_clin2cd <- sapply_withnames(control_rate, 
+                                     funX=sim_same_qexp, 
+                                     oldtime=clin2cd, 
+                                     oldrate=control_rate[[1]], 
+                                     prefix='control')
+    screen_clin2cd <- sapply_withnames(screen_rate, 
+                                    funX=sim_same_qexp, 
+                                    oldtime=clin2cd, 
+                                    oldrate=control_rate[[1]], 
+                                    prefix='screen')
+} else if (surv_distr=='weibull') {                      
+    sim_same_qweib <- function(oldtime, oldscale, oldshape, newscale, prefix){
+      newtime = qweibull(p = pweibull(oldtime, shape = oldshape, scale=oldscale), shape = oldshape, scale = newscale)
+      colnames(newtime) = paste0(prefix, 1:ncol(newtime))
+      newtime[abs(oldtime - newtime) < 0.001] = oldtime[abs(oldtime - newtime) < 0.001]
+      return(newtime)
+    }
+
+    control_clin2cd <- sapply_withnames(control_scale, 
+                                     funX=sim_same_qweib, 
+                                     oldtime=clin2cd, 
+                                     oldscale=control_scale[[1]], 
+                                     oldshape=control_baseshape,
+                                     prefix='control')
+    screen_clin2cd <- sapply_withnames(screen_scale, 
+                                    funX=sim_same_qweib, 
+                                    oldtime=clin2cd, 
+                                    oldscale=control_scale[[1]], 
+                                    oldshape=control_baseshape,
+                                    prefix='screen')
+}
 # For shifted cases, add lead time?
 if ('lead_time'%in%ls()) {
 if (lead_time) {
@@ -662,20 +723,33 @@ write.csv(mortrates_wide,
 # Validate model: Mean survivals
 ############################################################
 
-if (grepl('breast_ER-HER2', model_version)) {
+if (grepl('breast_ER-HER2_5', model_version)) {
     # Baseline mean survivals
-    base_msurvs <- subset(
-                          transform(control_notreat, 
-                                    Historical=1/mortrate,
-                                    Contemp1999=1/mortrate,
-                                    Perfect=1/mortrate,
-                                    Arm=SSid,
-                                    Subgroup=c('Baseline survivals',
-                                               rep('',
-                                                   nrow(control_notreat)-1))),
-                          select=c(Subgroup, Arm, Historical, Contemp1999,
-                                   Perfect))
-
+    if (surv_distr=='exponential') {
+        base_msurvs <- subset(
+                              transform(control_notreat, 
+                                        Historical=1/mortrate,
+                                        Contemp1999=1/mortrate,
+                                        Perfect=1/mortrate,
+                                        Arm=SSid,
+                                        Subgroup=c('Baseline survivals',
+                                                   rep('',
+                                                       nrow(control_notreat)-1))),
+                              select=c(Subgroup, Arm, Historical, Contemp1999,
+                                       Perfect))
+    } else if (surv_distr=='weibull') {
+        base_msurvs <- subset(
+                              transform(control_notreat, 
+                                        Historical=mortscale*gamma(1 + 1/mortshape),
+                                        Contemp1999=mortscale*gamma(1 + 1/mortshape),
+                                        Perfect=mortscale*gamma(1 + 1/mortshape),
+                                        Arm=SSid,
+                                        Subgroup=c('Baseline survivals',
+                                                   rep('',
+                                                       nrow(control_notreat)-1))),
+                              select=c(Subgroup, Arm, Historical, Contemp1999,
+                                       Perfect))
+    }
     # Indicator of stage
     control_stage <- return_value_from_id(control_notreat_rows,
                                           control_notreat,

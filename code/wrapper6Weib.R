@@ -28,7 +28,7 @@ rm(list=ls())
 # What is the name of the user options file associated with
 # this wrapper file? Location is presumed to be in [area]/code,
 # e.g. diagnostics/code
-user_options_file = 'user_options6.R'
+user_options_file = 'user_options6Weib.R'
 input_data_file = 'input_temp_ERHER2_withAI_Ynames.csv'
 
 # Should a copy of the input dataset be stored in the model folder?
@@ -38,11 +38,11 @@ copy_data = TRUE
 
 # Establish model folders and describe the model
 model_type = 'screentreat'
-model_version = 'breast_ER-HER2_6'
+model_version = 'breast_ER-HER2_6Weib'
 model_description = c(#data='ademuyiwa_real_2', 
                       data='mostly JNCI monograph',
                       sampling='N/A',
-                      model_method='15% stage shift',
+                      model_method='15% stage shift, Weibull mortality distribution',
                       design='three trials: historical-Y1977, Y1999, perfect=Y2015',
                       stage='early and advanced',
                       prognostic_factors='ER, HER2',
