@@ -33,7 +33,7 @@ library_file = file.path(rootdir, '/screentreat/code/screentreat_library.R')
 ############################################################
 # Simulation features
 ############################################################
-nsim = 100
+nsim = 10
 times = c(10,13,25)
 pop_size = 100000
 study_year = 2000
@@ -69,6 +69,9 @@ if (lead_time) lt_mean = (40/12)
 # Treatment HRs and distributions by subgroup-stage
 treat_chars = read.csv(treat_file, header=TRUE, 
                         stringsAsFactors=FALSE)
+
+# Survival distribuion: exponential or weibull?
+surv_distr = 'exponential'
 
 # Baseline mortality rates and population proportions by
 # subgroup-stages. Subgroup stages specified here must

@@ -65,6 +65,7 @@ using_wrapper=TRUE
 setwd('~')
 if (grepl('jbirnbau', getwd())) rootdir <- getwd()
 if (grepl('jeanette', getwd())) rootdir <- file.path(getwd(), 'Documents', 'jbirnbau')
+if (grepl('Elan', getwd())) rootdir <- getwd()
 
 base_path <- file.path(rootdir, model_type, 'examples')
 

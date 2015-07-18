@@ -17,8 +17,9 @@
 if (!'using_wrapper'%in%ls()) {
     warning('Empyting the workspace')
     rm(list=ls())
-    model_version <- 'breast_ER-HER2_6'
-    base_path <- '~/screentreat/examples'
+    model_version <- 'breast_ER-HER2_6Weib'
+    rootdir <- '~'
+    base_path <- file.path(rootdir, '/screentreat/examples')
 }
 
 ############################################################
@@ -26,21 +27,14 @@ if (!'using_wrapper'%in%ls()) {
 ############################################################
 
 treat_file = file.path(base_path, model_version, 'input', 'input.csv')
-incidence_file = '~/screentreat/data/bc_1975-1979_incidence.csv'
-library_file = '~/screentreat/code/screentreat_library.R'
+incidence_file = file.path(rootdir, '/screentreat/data/bc_1975-1979_incidence.csv')
+library_file = file.path(rootdir, '/screentreat/code/screentreat_library.R')
 #life_table_file = '~/cantrance/diagnostics/data/life_table_Reed2012.csv'
-
-
-
-# treat_file = file.path(base_path, model_version, 'input', 'input.csv')
-# incidence_file = file.path(rootdir, '/screentreat/data/bc_1975-1979_incidence.csv')
-# library_file = file.path(rootdir, '/screentreat/code/screentreat_library.R')
-# #life_table_file = '~/cantrance/diagnostics/data/life_table_Reed2012.csv'
 
 ############################################################
 # Simulation features
 ############################################################
-nsim = 50
+nsim = 10
 times = c(10,13,25)
 pop_size = 100000
 study_year = 2000
@@ -77,6 +71,9 @@ if (lead_time) lt_mean = (40/12)
 treat_chars = read.csv(treat_file, header=TRUE, 
                         stringsAsFactors=FALSE)
 
+# Survival distribuion: exponential or weibull?
+surv_distr = 'weibull'
+
 # Baseline mortality rates and population proportions by
 # subgroup-stages. Subgroup stages specified here must
 # match those given in the scrtrt_file
@@ -102,7 +99,5 @@ ocd_HR = 1
 # Run model
 ############################################################
 
-source(file.path('~/screentreat/code/run_file.R'))
-
-#source(file.path(rootdir, '/screentreat/code/run_file.R'))
+source(file.path(rootdir, '/screentreat/code/run_file.R'))
 

@@ -29,7 +29,7 @@ rm(list=ls())
 # this wrapper file? Location is presumed to be in [area]/code,
 # e.g. diagnostics/code
 user_options_file = 'user_options6Weib.R'
-input_data_file = 'input_temp_ERHER2_withAI.csv' #FIX Needs ..._Ynames
+input_data_file = 'input_temp_ERHER2_withAI_Ynames.csv'
 
 # Should a copy of the input dataset be stored in the model folder?
 # It will be named input_data.csv, so describe it below in 
