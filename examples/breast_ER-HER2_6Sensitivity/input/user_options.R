@@ -34,14 +34,33 @@ library_file = file.path(rootdir, '/screentreat/code/screentreat_library.R')
 ############################################################
 # Simulation features
 ############################################################
-nsim = 3
+nsim = 50
 times = c(10,13,25)
-pop_size = 10000
+pop_size = 100000
 study_year = 2000
 
 ############################################################
 # Population features
 ############################################################
+
+
+
+####################for running multiple parameters
+#define variables
+HR_advanced <- NA
+instage_screen_benefit_early <- NA
+instage_screen_benefit_advanced <- NA
+#save all objects in workspace
+space <- ls()
+space <- append(space, "space")
+for(instage_screen_benefit_advanced in c(.5, .7, .9)){
+  for(instage_screen_benefit_early in c(.5, .7, .9)){
+    for(HR_advanced in c(.85, .5)){
+      rm(list=setdiff(ls(), space)) #removes objects created by previous run
+      cat('running settings:Shift: ', HR_advanced,
+          ', Early Benefit: ', instage_screen_benefit_early, 
+          ', Advanced Benefit: ', instage_screen_benefit_advanced)
+
 
 pop_chars = 
     list(age=data.frame(age=c(50), prop=c(1)),
@@ -60,11 +79,11 @@ if (!age_is_ageclin) {
 ############################################################
 
 # Stage shift
-HR_advanced = 0.85
+#HR_advanced = 0.85 #reassigned below
 
 # Within stage treatment benefit
-instage_screen_benefit_early=0.7
-instage_screen_benefit_advanced=0.9
+#instage_screen_benefit_early = .9 #reassigned below
+#instage_screen_benefit_advanced = .9 #reassigned below
 
 # Add lead time? Default is undefined or FALSE
 # If true, add mean lead time in years
@@ -81,12 +100,8 @@ surv_distr = 'weibull'
 # Baseline mortality rates and population proportions by
 # subgroup-stages. Subgroup stages specified here must
 # match those given in the scrtrt_file
-control_notreat = data.frame(stage=c(rep('Early',4),
-                                     rep('Advanced',4)),
-                             subgroup=rep(c('ER+HER2+',
-                                            'ER+HER2-',
-                                            'ER-HER2+',
-                                            'ER-HER2-'),2),
+control_notreat = data.frame(stage=c('Early', 'Advanced'),
+                             subgroup=c('All', 'All'), 
                              mortshape=c(rep(1.019, 4), rep(0.68, 4)),  ## For Weibull distribution
                              mortscale=c(rep(50.699,4),rep(14.810, 4)), ##
                              prop=c(0.04, 0.38, 0.02, 0.06,
@@ -103,5 +118,26 @@ ocd_HR = 1
 # Run model
 ############################################################
 
-source(file.path(rootdir, '/screentreat/code/run_file.R'))
 
+      write.table(t(c("Stage_Shift", 
+                      "Instage_HR_Early", 
+                      "Instage_HR_Advanced")),
+                append = TRUE,
+                file.path(base_path, model_version, 'output', 
+                          'cuminc_mrr_newtable.csv'),
+                row.names=FALSE,
+                col.names=FALSE,
+                sep=",")
+      write.table(t(c(HR_advanced,
+                    instage_screen_benefit_early,
+                    instage_screen_benefit_advanced)),
+                  append = TRUE,
+                  file.path(base_path, model_version, 'output', 
+                            'cuminc_mrr_newtable.csv'),
+                  row.names=FALSE,
+                  col.names=FALSE,
+                  sep=",")
+      source(file.path(rootdir, '/screentreat/code/run_file_Sensitivity.R'))
+    }
+  }
+}

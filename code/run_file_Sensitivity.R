@@ -301,6 +301,7 @@ if (surv_distr=='exponential') {
 # Now for other groups
 # For the first control group, we will just get back the same times,
 # i.e. ttcd==control_ttcd[[1]]
+
 if (surv_distr=='exponential') {
     control_clin2cd <- sapply_withnames(control_rate, 
                                      funX=sim_same_qexp, 
@@ -402,7 +403,6 @@ screen_ttd <- sapply_withnames(screen_ageCD,
 cat('\nConstructing results tables...')
 
 # New results - 7/13/15
-
     control_cuminc <- tally_cuminc_simple(times, 
                                       control_ttcd,
                                       control_CoD)
@@ -523,10 +523,13 @@ new_table <- lapply(names(control_cuminc),
 new_table_full <- do.call('rbind', new_table)
 
 # Save
-write.csv(new_table_full,
-          file.path(base_path, model_version, 'output', 
-                    'cuminc_mrr_newtable.csv'),
-          row.names=FALSE)
+write.table(new_table_full,
+            append = TRUE,
+            file.path(base_path, model_version, 'output', 
+                      'cuminc_mrr_newtable.csv'),
+            row.names=FALSE,
+            col.names=FALSE,
+            sep=",")
 
 
 # Old results
