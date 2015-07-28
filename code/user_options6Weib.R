@@ -83,8 +83,10 @@ control_notreat = data.frame(stage=c(rep('Early',4),
                                             'ER+HER2-',
                                             'ER-HER2+',
                                             'ER-HER2-'),2),
-                             mortshape=c(rep(1.019, 4), rep(0.68, 4)),  ## For Weibull distribution
-                             mortscale=c(rep(50.699,4),rep(14.810, 4)), ##
+                             #mortshape=c(rep(1.019, 4), rep(0.68, 4)),  ## For Weibull distribution
+                             #mortscale=c(rep(50.699,4),rep(14.810, 4)), ##
+                             mortshape=c(rep(1.025, 4), rep(0.652, 4)),  ## For Weibull distribution
+                             mortscale=c(rep(47.861,4),rep(13.943, 4)), ##
                              prop=c(0.04, 0.38, 0.02, 0.06,
                                     0.06, 0.34, 0.03, 0.07))
 
