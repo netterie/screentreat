@@ -21,6 +21,7 @@ if (!'using_wrapper'%in%ls()) {
     rootdir <- '~'
     base_path <- file.path(rootdir, '/screentreat/examples')
 }
+file.remove(file.path(base_path, 'output', 'cuminc_mrr_newtable.csv'))
 
 ############################################################
 # Input data files
@@ -34,9 +35,9 @@ library_file = file.path(rootdir, '/screentreat/code/screentreat_library.R')
 ############################################################
 # Simulation features
 ############################################################
-nsim = 50
-times = c(10,13,25)
-pop_size = 100000
+nsim = 2
+times = c(10,25)
+pop_size = 3000
 study_year = 2000
 
 ############################################################
@@ -49,18 +50,21 @@ study_year = 2000
 #define variables
 HR_advanced <- NA
 instage_screen_benefit_early <- NA
-instage_screen_benefit_advanced <- NA
+local_baseline_RR <- NA
+weibRRcalc <- function(shape, scale, RR){
+  return(scale/(RR^(1/shape)))
+}
+#instage_screen_benefit_advanced <- NA
 #save all objects in workspace
 space <- ls()
 space <- append(space, "space")
-for(instage_screen_benefit_advanced in c(.5, .7, .9)){
-  for(instage_screen_benefit_early in c(.5, .7, .9)){
-    for(HR_advanced in c(.85, .5)){
+for(instage_screen_benefit_early in c(.5, .7, .9)){
+  for(HR_advanced in c(.85, .7, .5)){
+    for(local_baseline_RR in c(1)){
       rm(list=setdiff(ls(), space)) #removes objects created by previous run
-      cat('running settings:Shift: ', HR_advanced,
+      cat('\nrunning settings:Shift: ', HR_advanced,
           ', Early Benefit: ', instage_screen_benefit_early, 
-          ', Advanced Benefit: ', instage_screen_benefit_advanced)
-
+          ', Base Change Early: ', local_baseline_RR)
 
 pop_chars = 
     list(age=data.frame(age=c(50), prop=c(1)),
@@ -79,11 +83,11 @@ if (!age_is_ageclin) {
 ############################################################
 
 # Stage shift
-#HR_advanced = 0.85 #reassigned below
+# HR_advanced = 0.85 #reassigned below
 
 # Within stage treatment benefit
-#instage_screen_benefit_early = .9 #reassigned below
-#instage_screen_benefit_advanced = .9 #reassigned below
+#instage_screen_benefit_early = .9 #reassigned above
+instage_screen_benefit_advanced = 1
 
 # Add lead time? Default is undefined or FALSE
 # If true, add mean lead time in years
@@ -100,13 +104,16 @@ surv_distr = 'weibull'
 # Baseline mortality rates and population proportions by
 # subgroup-stages. Subgroup stages specified here must
 # match those given in the scrtrt_file
-control_notreat = data.frame(stage=c('Early', 'Advanced'),
-                             subgroup=c('All', 'All'), 
-                             mortshape=c(rep(1.019, 4), rep(0.68, 4)),  ## For Weibull distribution
-                             mortscale=c(rep(50.699,4),rep(14.810, 4)), ##
-                             prop=c(0.04, 0.38, 0.02, 0.06,
-                                    0.06, 0.34, 0.03, 0.07))
+control_notreat = data.frame(stage = c('Early', 'Advanced'),
+                             subgroup = c('All', 'All'), 
+                             mortshape = c(0.948, 0.642),   ## For Weibull distribution
+                             mortscale = c(53.615, 15.69),  ##
+                             #mortrate=c(.01992, .10693),
+                             prop = c(0.496, .504))
 
+#adjust distribution for better baseline survival
+# control_notreat[control_notreat$stage=='Early',] <- transform(control_notreat[control_notreat$stage=='Early',],
+#                              mortscale = weibRRcalc(mortshape, mortscale, local_baseline_RR)) 
 
 ############################################################
 # Other-cause mortality
@@ -120,8 +127,7 @@ ocd_HR = 1
 
 
       write.table(t(c("Stage_Shift", 
-                      "Instage_HR_Early", 
-                      "Instage_HR_Advanced")),
+                      "Instage_HR_Early")),
                 append = TRUE,
                 file.path(base_path, model_version, 'output', 
                           'cuminc_mrr_newtable.csv'),
@@ -129,8 +135,7 @@ ocd_HR = 1
                 col.names=FALSE,
                 sep=",")
       write.table(t(c(HR_advanced,
-                    instage_screen_benefit_early,
-                    instage_screen_benefit_advanced)),
+                    instage_screen_benefit_early)),
                   append = TRUE,
                   file.path(base_path, model_version, 'output', 
                             'cuminc_mrr_newtable.csv'),
@@ -138,6 +143,7 @@ ocd_HR = 1
                   col.names=FALSE,
                   sep=",")
       source(file.path(rootdir, '/screentreat/code/run_file_Sensitivity.R'))
+  
     }
   }
 }

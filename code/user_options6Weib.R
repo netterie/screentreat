@@ -34,9 +34,9 @@ library_file = file.path(rootdir, '/screentreat/code/screentreat_library.R')
 ############################################################
 # Simulation features
 ############################################################
-nsim = 3
-times = c(10,13,25)
-pop_size = 10000
+nsim = 100
+times = c(10,25)
+pop_size = 100000
 study_year = 2000
 
 ############################################################
@@ -63,8 +63,8 @@ if (!age_is_ageclin) {
 HR_advanced = 0.85
 
 # Within stage treatment benefit
-instage_screen_benefit_early=0.7
-instage_screen_benefit_advanced=0.9
+instage_screen_benefit_early=1
+instage_screen_benefit_advanced=1
 
 # Add lead time? Default is undefined or FALSE
 # If true, add mean lead time in years
@@ -72,7 +72,7 @@ lead_time = FALSE
 if (lead_time) lt_mean = (40/12)
 
 # Treatment HRs and distributions by subgroup-stage
-treat_chars = read.csv(treat_file, header=TRUE, 
+treat_chars = read.csv(treat_file, header=TRUE,
                         stringsAsFactors=FALSE)
 
 # Survival distribuion: exponential or weibull?
@@ -87,8 +87,8 @@ control_notreat = data.frame(stage=c(rep('Early',4),
                                             'ER+HER2-',
                                             'ER-HER2+',
                                             'ER-HER2-'),2),
-                             mortshape=c(rep(1.019, 4), rep(0.68, 4)),  ## For Weibull distribution
-                             mortscale=c(rep(50.699,4),rep(14.810, 4)), ##
+                             mortshape=c(rep(0.948, 4), rep(0.642, 4)), ## For Weibull distribution
+                             mortscale=c(rep(53.615,4),rep(15.69, 4)),  ##
                              prop=c(0.04, 0.38, 0.02, 0.06,
                                     0.06, 0.34, 0.03, 0.07))
 
