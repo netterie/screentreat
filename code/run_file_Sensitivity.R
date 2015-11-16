@@ -528,12 +528,12 @@ write.table(new_table_full,
             file.path(base_path, model_version, 'output', 
                       'cuminc_mrr_newtable.csv'),
             row.names=FALSE,
-            col.names=FALSE,
+            col.names=TRUE,
             sep=",")
 
 
 # Old results
-if (1==0) {
+if (1==1) {
     within_trials <- sapply_withnames(trials,
                                        funX=function(x,
                                                      times,
@@ -619,14 +619,20 @@ if (1==0) {
     colnames(final_table) <- gsub(' Up', '-Up', colnames(final_table))
     
     # Save
-    write.csv(final_table,
-              file.path(base_path, model_version, 'output', 
-                        'cuminc_mrr_full.csv'),
-              row.names=FALSE)
-    write.csv(subset(final_table, `Follow-Up Year`==max(times)),
-              file.path(base_path, model_version, 'output', 
-                        paste0('cuminc_mrr_', max(times), '.csv')),
-              row.names=FALSE)
+    write.table(final_table,
+                append = TRUE,
+                file.path(base_path, model_version, 'output', 
+                          paste0('cuminc_mrr_full', instage_screen_benefit_early, HR_advanced , '.csv')),
+                row.names=FALSE,
+                col.names=TRUE,
+                sep=",")
+    write.table(subset(final_table, `Follow-Up Year`==max(times)),
+                append = TRUE,
+                file.path(base_path, model_version, 'output', 
+                          paste0('cuminc_mrr_', max(times), instage_screen_benefit_early, HR_advanced , '.csv')),
+                row.names=FALSE,
+                col.names=TRUE,
+                sep=",")
 
     ############################################################
     # Graph cumulative incidence

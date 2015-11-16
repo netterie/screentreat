@@ -33,8 +33,8 @@ library_file = file.path(rootdir, '/screentreat/code/screentreat_library.R')
 ############################################################
 # Simulation features
 ############################################################
-nsim = 10
-times = c(10,13,25)
+nsim = 100
+times = c(10,25)
 pop_size = 100000
 study_year = 2000
 
@@ -60,6 +60,10 @@ if (!age_is_ageclin) {
 
 # Stage shift
 HR_advanced = 0.85
+
+# within stage effects
+instage_screen_benefit_early = 1
+instage_screen_benefit_advanced = 1
 
 # Add lead time? Default is undefined or FALSE
 # If true, add mean lead time in years
