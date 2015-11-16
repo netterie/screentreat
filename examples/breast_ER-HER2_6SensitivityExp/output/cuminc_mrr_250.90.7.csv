@@ -1,0 +1,231 @@
+"Trial","Effect","Follow-Up Year","Measure","Estimate","UI","Estimate_Orig"
+"e1a1","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e1a1","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0066,"(0.006,0.007)",0.0066
+"e1a1","Effect of screening, same treatment",25,"MRR",0.7952,"(0.7618,0.8188)",0.7888
+"e1a1","Effect of screening, same treatment",25,"ARR",0.0017,"(0.0015,0.002)",0.0018
+"e1a1","Effect of screening, same treatment",25,"NNS",588.2353,"(494.7508,669.0157)",572.9565
+"e1a2","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.013,"(0.0122,0.0137)",0.013
+"e1a2","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0098,"(0.0092,0.0104)",0.0098
+"e1a2","Effect of screening, same treatment",25,"MRR",0.7538,"(0.7341,0.7879)",0.757
+"e1a2","Effect of screening, same treatment",25,"ARR",0.0032,"(0.0028,0.0035)",0.0032
+"e1a2","Effect of screening, same treatment",25,"NNS",312.5,"(285.2869,357.8149)",318.1725
+"e1a3","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0162,"(0.0155,0.017)",0.0162
+"e1a3","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0121,"(0.0115,0.0128)",0.0121
+"e1a3","Effect of screening, same treatment",25,"MRR",0.7469,"(0.7278,0.7714)",0.7465
+"e1a3","Effect of screening, same treatment",25,"ARR",0.0041,"(0.0037,0.0045)",0.0041
+"e1a3","Effect of screening, same treatment",25,"NNS",243.9024,"(221.472,268.1344)",243.6586
+"e1a4","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0186,"(0.0178,0.0195)",0.0186
+"e1a4","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0138,"(0.0132,0.0144)",0.0138
+"e1a4","Effect of screening, same treatment",25,"MRR",0.7419,"(0.7194,0.763)",0.7406
+"e1a4","Effect of screening, same treatment",25,"ARR",0.0048,"(0.0043,0.0052)",0.0048
+"e1a4","Effect of screening, same treatment",25,"NNS",208.3333,"(191.013,230.4425)",208.0133
+"e2a1","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0097,"(0.009,0.0102)",0.0097
+"e2a1","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0082,"(0.0077,0.0087)",0.0082
+"e2a1","Effect of screening, same treatment",25,"MRR",0.8454,"(0.8247,0.8674)",0.8487
+"e2a1","Effect of screening, same treatment",25,"ARR",0.0015,"(0.0013,0.0017)",0.0015
+"e2a1","Effect of screening, same treatment",25,"NNS",666.6667,"(593.1621,796.9841)",686.9304
+"e2a2","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0144,"(0.0136,0.0151)",0.0144
+"e2a2","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0115,"(0.0108,0.0122)",0.0115
+"e2a2","Effect of screening, same treatment",25,"MRR",0.7986,"(0.7809,0.8209)",0.8005
+"e2a2","Effect of screening, same treatment",25,"ARR",0.0029,"(0.0025,0.0032)",0.0029
+"e2a2","Effect of screening, same treatment",25,"NNS",344.8276,"(314.379,392.1569)",350.4037
+"e2a3","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0176,"(0.0168,0.0184)",0.0176
+"e2a3","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0138,"(0.0131,0.0145)",0.0138
+"e2a3","Effect of screening, same treatment",25,"MRR",0.7841,"(0.7655,0.8022)",0.7828
+"e2a3","Effect of screening, same treatment",25,"ARR",0.0038,"(0.0035,0.0042)",0.0038
+"e2a3","Effect of screening, same treatment",25,"NNS",263.1579,"(236.6474,287.9439)",262.1728
+"e2a4","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0199,"(0.0192,0.0209)",0.0199
+"e2a4","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0154,"(0.0147,0.0162)",0.0154
+"e2a4","Effect of screening, same treatment",25,"MRR",0.7739,"(0.7567,0.7935)",0.773
+"e2a4","Effect of screening, same treatment",25,"ARR",0.0045,"(0.0041,0.0049)",0.0045
+"e2a4","Effect of screening, same treatment",25,"NNS",222.2222,"(202.2145,243.7269)",221.3655
+"e3a1","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.011,"(0.0103,0.0115)",0.011
+"e3a1","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0098,"(0.0092,0.0103)",0.0098
+"e3a1","Effect of screening, same treatment",25,"MRR",0.8909,"(0.87,0.9096)",0.8934
+"e3a1","Effect of screening, same treatment",25,"ARR",0.0012,"(0.001,0.0014)",0.0012
+"e3a1","Effect of screening, same treatment",25,"NNS",833.3333,"(701.3547,1038.3086)",864.2493
+"e3a2","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0156,"(0.0149,0.0164)",0.0156
+"e3a2","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0131,"(0.0124,0.0138)",0.0131
+"e3a2","Effect of screening, same treatment",25,"MRR",0.8397,"(0.8205,0.8513)",0.8357
+"e3a2","Effect of screening, same treatment",25,"ARR",0.0025,"(0.0022,0.0029)",0.0026
+"e3a2","Effect of screening, same treatment",25,"NNS",400,"(341.7592,445.7376)",391.1624
+"e3a3","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0189,"(0.0181,0.0198)",0.0189
+"e3a3","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0153,"(0.0147,0.0161)",0.0153
+"e3a3","Effect of screening, same treatment",25,"MRR",0.8095,"(0.7977,0.8293)",0.8131
+"e3a3","Effect of screening, same treatment",25,"ARR",0.0036,"(0.0032,0.0038)",0.0035
+"e3a3","Effect of screening, same treatment",25,"NNS",277.7778,"(260.0616,310.1023)",284.2791
+"e3a4","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0212,"(0.0204,0.0222)",0.0212
+"e3a4","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.017,"(0.0163,0.0178)",0.017
+"e3a4","Effect of screening, same treatment",25,"MRR",0.8019,"(0.7836,0.8151)",0.8006
+"e3a4","Effect of screening, same treatment",25,"ARR",0.0042,"(0.0039,0.0046)",0.0042
+"e3a4","Effect of screening, same treatment",25,"NNS",238.0952,"(215.9401,258.8706)",236.9083
+"e4a1","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0121,"(0.0115,0.0127)",0.0121
+"e4a1","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0112,"(0.0106,0.0118)",0.0112
+"e4a1","Effect of screening, same treatment",25,"MRR",0.9256,"(0.9099,0.9417)",0.926
+"e4a1","Effect of screening, same treatment",25,"ARR",9e-04,"(7e-04,0.0011)",9e-04
+"e4a1","Effect of screening, same treatment",25,"NNS",1111.1111,"(921.198,1379.8516)",1127.1989
+"e4a2","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0168,"(0.0161,0.0175)",0.0168
+"e4a2","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0145,"(0.0138,0.0152)",0.0145
+"e4a2","Effect of screening, same treatment",25,"MRR",0.8631,"(0.8482,0.8797)",0.8633
+"e4a2","Effect of screening, same treatment",25,"ARR",0.0023,"(0.002,0.0026)",0.0023
+"e4a2","Effect of screening, same treatment",25,"NNS",434.7826,"(387.5969,497.9947)",437.0691
+"e4a3","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0201,"(0.0193,0.0209)",0.0201
+"e4a3","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0168,"(0.0162,0.0176)",0.0168
+"e4a3","Effect of screening, same treatment",25,"MRR",0.8358,"(0.8225,0.855)",0.8376
+"e4a3","Effect of screening, same treatment",25,"ARR",0.0033,"(0.0029,0.0036)",0.0033
+"e4a3","Effect of screening, same treatment",25,"NNS",303.0303,"(277.0083,346.0848)",307.9475
+"e4a4","Effect of screening, same treatment",25,"Cumulative Incidence, Group 0",0.0224,"(0.0216,0.0233)",0.0224
+"e4a4","Effect of screening, same treatment",25,"Cumulative Incidence, Group 1",0.0184,"(0.0178,0.0192)",0.0184
+"e4a4","Effect of screening, same treatment",25,"MRR",0.8214,"(0.8083,0.8402)",0.8231
+"e4a4","Effect of screening, same treatment",25,"ARR",0.004,"(0.0036,0.0044)",0.004
+"e4a4","Effect of screening, same treatment",25,"NNS",250,"(227.6902,279.4164)",253.1586
+"e1a2","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e1a2","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.013,"(0.0122,0.0137)",0.013
+"e1a2","Effect of treatment, without screening",25,"MRR",1.5663,"(1.5043,1.6186)",1.5622
+"e1a2","Effect of treatment, without screening",25,"ARR",-0.0047,"(-0.0051,-0.0043)",-0.0047
+"e1a2","Effect of treatment, without screening",25,"NNS",-212.766,"(-230.6941,-195.6763)",-214.5166
+"e1a2","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e1a2","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0098,"(0.0092,0.0104)",0.0098
+"e1a2","Effect of treatment, with screening",25,"MRR",1.4848,"(1.4422,1.5587)",1.4993
+"e1a2","Effect of treatment, with screening",25,"ARR",-0.0032,"(-0.0036,-0.003)",-0.0033
+"e1a2","Effect of treatment, with screening",25,"NNS",-312.5,"(-335.101,-276.1752)",-306.5053
+"e1a3","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e1a3","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0162,"(0.0155,0.017)",0.0162
+"e1a3","Effect of treatment, without screening",25,"MRR",1.9518,"(1.871,2.0422)",1.9532
+"e1a3","Effect of treatment, without screening",25,"ARR",-0.0079,"(-0.0084,-0.0074)",-0.0079
+"e1a3","Effect of treatment, without screening",25,"NNS",-126.5823,"(-134.2374,-119.0407)",-126.4222
+"e1a3","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e1a3","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0121,"(0.0115,0.0128)",0.0121
+"e1a3","Effect of treatment, with screening",25,"MRR",1.8333,"(1.7648,1.9478)",1.8487
+"e1a3","Effect of treatment, with screening",25,"ARR",-0.0055,"(-0.0059,-0.0052)",-0.0056
+"e1a3","Effect of treatment, with screening",25,"NNS",-181.8182,"(-193.818,-168.9189)",-180.1537
+"e1a4","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e1a4","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0186,"(0.0178,0.0195)",0.0186
+"e1a4","Effect of treatment, without screening",25,"MRR",2.241,"(2.1365,2.3418)",2.2346
+"e1a4","Effect of treatment, without screening",25,"ARR",-0.0103,"(-0.0109,-0.0097)",-0.0103
+"e1a4","Effect of treatment, without screening",25,"NNS",-97.0874,"(-102.9597,-92.1466)",-97.5868
+"e1a4","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e1a4","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0138,"(0.0132,0.0144)",0.0138
+"e1a4","Effect of treatment, with screening",25,"MRR",2.0909,"(1.997,2.2123)",2.0981
+"e1a4","Effect of treatment, with screening",25,"ARR",-0.0072,"(-0.0077,-0.0068)",-0.0072
+"e1a4","Effect of treatment, with screening",25,"NNS",-138.8889,"(-148.044,-130.4068)",-139.1637
+"e2a1","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e2a1","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0097,"(0.009,0.0102)",0.0097
+"e2a1","Effect of treatment, without screening",25,"MRR",1.1687,"(1.1428,1.1964)",1.165
+"e2a1","Effect of treatment, without screening",25,"ARR",-0.0014,"(-0.0016,-0.0012)",-0.0014
+"e2a1","Effect of treatment, without screening",25,"NNS",-714.2857,"(-819.6721,-628.7579)",-733.971
+"e2a1","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e2a1","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0082,"(0.0077,0.0087)",0.0082
+"e2a1","Effect of treatment, with screening",25,"MRR",1.2424,"(1.2126,1.2945)",1.2536
+"e2a1","Effect of treatment, with screening",25,"ARR",-0.0016,"(-0.0019,-0.0014)",-0.0017
+"e2a1","Effect of treatment, with screening",25,"NNS",-625,"(-699.5794,-531.7885)",-605.015
+"e2a2","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e2a2","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0144,"(0.0136,0.0151)",0.0144
+"e2a2","Effect of treatment, without screening",25,"MRR",1.7349,"(1.6534,1.8044)",1.7272
+"e2a2","Effect of treatment, without screening",25,"ARR",-0.0061,"(-0.0066,-0.0056)",-0.006
+"e2a2","Effect of treatment, without screening",25,"NNS",-163.9344,"(-177.4703,-151.44)",-165.8086
+"e2a2","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e2a2","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0115,"(0.0108,0.0122)",0.0115
+"e2a2","Effect of treatment, with screening",25,"MRR",1.7424,"(1.6705,1.8313)",1.7529
+"e2a2","Effect of treatment, with screening",25,"ARR",-0.0049,"(-0.0053,-0.0046)",-0.0049
+"e2a2","Effect of treatment, with screening",25,"NNS",-204.0816,"(-217.64,-187.6173)",-203.0985
+"e2a3","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e2a3","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0176,"(0.0168,0.0184)",0.0176
+"e2a3","Effect of treatment, without screening",25,"MRR",2.1205,"(2.0182,2.2235)",2.1182
+"e2a3","Effect of treatment, without screening",25,"ARR",-0.0093,"(-0.0098,-0.0088)",-0.0093
+"e2a3","Effect of treatment, without screening",25,"NNS",-107.5269,"(-113.0681,-101.5228)",-107.7635
+"e2a3","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e2a3","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0138,"(0.0131,0.0145)",0.0138
+"e2a3","Effect of treatment, with screening",25,"MRR",2.0909,"(1.9954,2.2255)",2.1023
+"e2a3","Effect of treatment, with screening",25,"ARR",-0.0072,"(-0.0077,-0.0068)",-0.0072
+"e2a3","Effect of treatment, with screening",25,"NNS",-138.8889,"(-146.5256,-130.6294)",-138.6506
+"e2a4","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e2a4","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0199,"(0.0192,0.0209)",0.0199
+"e2a4","Effect of treatment, without screening",25,"MRR",2.3976,"(2.29,2.5311)",2.3996
+"e2a4","Effect of treatment, without screening",25,"ARR",-0.0116,"(-0.0123,-0.011)",-0.0116
+"e2a4","Effect of treatment, without screening",25,"NNS",-86.2069,"(-90.53,-81.3146)",-86.0797
+"e2a4","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e2a4","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0154,"(0.0147,0.0162)",0.0154
+"e2a4","Effect of treatment, with screening",25,"MRR",2.3333,"(2.2296,2.4786)",2.3517
+"e2a4","Effect of treatment, with screening",25,"ARR",-0.0088,"(-0.0094,-0.0084)",-0.0089
+"e2a4","Effect of treatment, with screening",25,"NNS",-113.6364,"(-118.7721,-106.6308)",-113.0278
+"e3a1","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e3a1","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.011,"(0.0103,0.0115)",0.011
+"e3a1","Effect of treatment, without screening",25,"MRR",1.3253,"(1.2797,1.365)",1.3177
+"e3a1","Effect of treatment, without screening",25,"ARR",-0.0027,"(-0.0029,-0.0024)",-0.0026
+"e3a1","Effect of treatment, without screening",25,"NNS",-370.3704,"(-417.5819,-341.2969)",-379.995
+"e3a1","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e3a1","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0098,"(0.0092,0.0103)",0.0098
+"e3a1","Effect of treatment, with screening",25,"MRR",1.4848,"(1.4343,1.5649)",1.4928
+"e3a1","Effect of treatment, with screening",25,"ARR",-0.0032,"(-0.0035,-0.0029)",-0.0032
+"e3a1","Effect of treatment, with screening",25,"NNS",-312.5,"(-343.2255,-284.8284)",-310.633
+"e3a2","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e3a2","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0156,"(0.0149,0.0164)",0.0156
+"e3a2","Effect of treatment, without screening",25,"MRR",1.8795,"(1.799,1.9671)",1.8799
+"e3a2","Effect of treatment, without screening",25,"ARR",-0.0073,"(-0.0078,-0.0069)",-0.0073
+"e3a2","Effect of treatment, without screening",25,"NNS",-136.9863,"(-145.8956,-127.6134)",-136.9862
+"e3a2","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e3a2","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0131,"(0.0124,0.0138)",0.0131
+"e3a2","Effect of treatment, with screening",25,"MRR",1.9848,"(1.894,2.1048)",1.992
+"e3a2","Effect of treatment, with screening",25,"ARR",-0.0065,"(-0.007,-0.006)",-0.0065
+"e3a2","Effect of treatment, with screening",25,"NNS",-153.8462,"(-165.4475,-143.2565)",-154.1013
+"e3a3","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e3a3","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0189,"(0.0181,0.0198)",0.0189
+"e3a3","Effect of treatment, without screening",25,"MRR",2.2771,"(2.162,2.3886)",2.2709
+"e3a3","Effect of treatment, without screening",25,"ARR",-0.0106,"(-0.0111,-0.0101)",-0.0106
+"e3a3","Effect of treatment, without screening",25,"NNS",-94.3396,"(-99.4086,-90.005)",-94.8026
+"e3a3","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e3a3","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0153,"(0.0147,0.0161)",0.0153
+"e3a3","Effect of treatment, with screening",25,"MRR",2.3182,"(2.211,2.4981)",2.3414
+"e3a3","Effect of treatment, with screening",25,"ARR",-0.0087,"(-0.0093,-0.0084)",-0.0088
+"e3a3","Effect of treatment, with screening",25,"NNS",-114.9425,"(-119.5568,-107.7374)",-113.9283
+"e3a4","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e3a4","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0212,"(0.0204,0.0222)",0.0212
+"e3a4","Effect of treatment, without screening",25,"MRR",2.5542,"(2.4348,2.6831)",2.5524
+"e3a4","Effect of treatment, without screening",25,"ARR",-0.0129,"(-0.0136,-0.0122)",-0.0129
+"e3a4","Effect of treatment, without screening",25,"NNS",-77.5194,"(-81.7695,-73.695)",-77.6031
+"e3a4","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e3a4","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.017,"(0.0163,0.0178)",0.017
+"e3a4","Effect of treatment, with screening",25,"MRR",2.5758,"(2.4439,2.7656)",2.5908
+"e3a4","Effect of treatment, with screening",25,"ARR",-0.0104,"(-0.011,-0.0099)",-0.0104
+"e3a4","Effect of treatment, with screening",25,"NNS",-96.1538,"(-100.6852,-90.7833)",-96.0392
+"e4a1","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e4a1","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0121,"(0.0115,0.0127)",0.0121
+"e4a1","Effect of treatment, without screening",25,"MRR",1.4578,"(1.4038,1.5113)",1.46
+"e4a1","Effect of treatment, without screening",25,"ARR",-0.0038,"(-0.0041,-0.0035)",-0.0038
+"e4a1","Effect of treatment, without screening",25,"NNS",-263.1579,"(-287.3563,-244.4988)",-262.2866
+"e4a1","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e4a1","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0112,"(0.0106,0.0118)",0.0112
+"e4a1","Effect of treatment, with screening",25,"MRR",1.697,"(1.6328,1.8129)",1.7143
+"e4a1","Effect of treatment, with screening",25,"ARR",-0.0046,"(-0.005,-0.0043)",-0.0047
+"e4a1","Effect of treatment, with screening",25,"NNS",-217.3913,"(-229.9428,-199.1667)",-214.1198
+"e4a2","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e4a2","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0168,"(0.0161,0.0175)",0.0168
+"e4a2","Effect of treatment, without screening",25,"MRR",2.0241,"(1.9252,2.1235)",2.0222
+"e4a2","Effect of treatment, without screening",25,"ARR",-0.0085,"(-0.009,-0.008)",-0.0085
+"e4a2","Effect of treatment, without screening",25,"NNS",-117.6471,"(-125.6281,-110.6078)",-117.9026
+"e4a2","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e4a2","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0145,"(0.0138,0.0152)",0.0145
+"e4a2","Effect of treatment, with screening",25,"MRR",2.197,"(2.1017,2.3461)",2.2136
+"e4a2","Effect of treatment, with screening",25,"ARR",-0.0079,"(-0.0085,-0.0074)",-0.0079
+"e4a2","Effect of treatment, with screening",25,"NNS",-126.5823,"(-134.2374,-117.984)",-125.9374
+"e4a3","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e4a3","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0201,"(0.0193,0.0209)",0.0201
+"e4a3","Effect of treatment, without screening",25,"MRR",2.4217,"(2.2898,2.545)",2.4132
+"e4a3","Effect of treatment, without screening",25,"ARR",-0.0118,"(-0.0124,-0.0111)",-0.0117
+"e4a3","Effect of treatment, without screening",25,"NNS",-84.7458,"(-89.8646,-80.537)",-85.2524
+"e4a3","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e4a3","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0168,"(0.0162,0.0176)",0.0168
+"e4a3","Effect of treatment, with screening",25,"MRR",2.5455,"(2.4183,2.7394)",2.563
+"e4a3","Effect of treatment, with screening",25,"ARR",-0.0102,"(-0.0108,-0.0097)",-0.0102
+"e4a3","Effect of treatment, with screening",25,"NNS",-98.0392,"(-102.6249,-92.2873)",-97.7657
+"e4a4","Effect of treatment, without screening",25,"Cumulative Incidence, Group 0",0.0083,"(0.0077,0.0088)",0.0083
+"e4a4","Effect of treatment, without screening",25,"Cumulative Incidence, Group 1",0.0224,"(0.0216,0.0233)",0.0224
+"e4a4","Effect of treatment, without screening",25,"MRR",2.6988,"(2.5628,2.8478)",2.6947
+"e4a4","Effect of treatment, without screening",25,"ARR",-0.0141,"(-0.0147,-0.0134)",-0.0141
+"e4a4","Effect of treatment, without screening",25,"NNS",-70.922,"(-74.6189,-67.8162)",-71.0845
+"e4a4","Effect of treatment, with screening",25,"Cumulative Incidence, Group 0",0.0066,"(0.006,0.007)",0.0066
+"e4a4","Effect of treatment, with screening",25,"Cumulative Incidence, Group 1",0.0184,"(0.0178,0.0192)",0.0184
+"e4a4","Effect of treatment, with screening",25,"MRR",2.7879,"(2.6463,3.0132)",2.8124
+"e4a4","Effect of treatment, with screening",25,"ARR",-0.0118,"(-0.0126,-0.0113)",-0.0119
+"e4a4","Effect of treatment, with screening",25,"NNS",-84.7458,"(-88.2779,-79.6419)",-84.2936

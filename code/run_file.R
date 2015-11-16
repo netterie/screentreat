@@ -517,7 +517,7 @@ write.csv(new_table_full,
 
 
 # Old results
-if (1==0) {
+if (1==1) {
     within_trials <- sapply_withnames(trials,
                                        funX=function(x,
                                                      times,
