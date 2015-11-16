@@ -62,10 +62,6 @@ if (!age_is_ageclin) {
 # Stage shift
 HR_advanced = 0.85
 
-# Within stage treatment benefit
-instage_screen_benefit_early=0.7
-instage_screen_benefit_advanced=0.9
-
 # Add lead time? Default is undefined or FALSE
 # If true, add mean lead time in years
 lead_time = FALSE

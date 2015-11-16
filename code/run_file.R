@@ -179,10 +179,6 @@ control_treatments <- sapply_withnames(trials, funX=function(
 # First create indicator of needing to change treatment
 shift_treatment <- shift==1 & 
                    control_notreat_rows%in%stage_pairs['Advanced',]
-# indicator for those not changing treatment but still benefitting from screening
-shift_instage_early <- control_notreat_rows%in%stage_pairs['Early',]
-shift_instage_advanced <- shift==0 & 
-  control_notreat_rows%in%stage_pairs['Advanced',]
 
 # Now get new treatment assignments for all early-stage cases
 screen_treatments <- sapply_withnames(trials, funX=function(
@@ -259,15 +255,6 @@ screen_HRs <- sapply_withnames(screen_treatments,
                                funX=return_value_from_id, 
                                treat_chars, 
                                'HR')
-
-# add within stage benefit to screen_HRs using shift_instage
-for (t in trials) {
-  screen_HRs[[t]][shift_instage_early] <- 
-    (screen_HRs[[t]][shift_instage_early])*instage_screen_benefit_early
-  screen_HRs[[t]][shift_instage_advanced] <- 
-    (screen_HRs[[t]][shift_instage_advanced])*instage_screen_benefit_advanced
-}
-
 
 if (surv_distr=='exponential') {
     # Final mortality rate
