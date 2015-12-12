@@ -28,8 +28,8 @@ rm(list=ls())
 # What is the name of the user options file associated with
 # this wrapper file? Location is presumed to be in [area]/code,
 # e.g. diagnostics/code
-user_options_file = 'user_options6.R'
-input_data_file = 'input_temp_ERHER2_withAI_Ynames.csv'
+user_options_file = 'user_options.R'
+input_data_file = 'input_temp_ERHER2_withAI.csv'
 
 # Should a copy of the input dataset be stored in the model folder?
 # It will be named input_data.csv, so describe it below in 
@@ -38,18 +38,18 @@ copy_data = TRUE
 
 # Establish model folders and describe the model
 model_type = 'screentreat'
-model_version = 'breast_ER-HER2_6'
+model_version = 'breast_ER-HER2_5b'
 model_description = c(#data='ademuyiwa_real_2', 
                       data='mostly JNCI monograph',
                       sampling='N/A',
-                      model_method='15% stage shift',
-                      design='three trials: historical-Y1977, Y1999, perfect=Y2015',
+                      model_method='25% stage shift',
+                      design='three trials: historical, 1999, perfect',
                       stage='early and advanced',
                       prognostic_factors='ER, HER2',
                       treatments='None, Tamoxifen, Chemo, Tamoxifen+Chemo, Chemo+Trastuzumab, Tamoxifen+Trastuzumab, and AI in Perfect trial',
                       efficacies='from EBTCG, Cochrane-Trazt=0.66 for early, 0.82 for advanced, 0.89 for AI',
                       life_table='BMD',
-                      other='like _4 and _5 but with no lead time and new format for outputs')
+                      other='like _5 but with 25% stage shift')
 
 # Do you want to actually run the model now, or 
 # do everything in this file except run the model?
@@ -64,9 +64,6 @@ using_wrapper=TRUE
 
 setwd('~')
 if (grepl('jbirnbau', getwd())) rootdir <- getwd()
-if (grepl('jeanette', getwd())) rootdir <- file.path(getwd(), 'Documents', 'jbirnbau')
-if (grepl('Elan', getwd())) rootdir <- getwd()
-if (grepl('emarkowi', getwd())) rootdir <- getwd()
 
 base_path <- file.path(rootdir, model_type, 'examples')
 
