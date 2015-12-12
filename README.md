@@ -1,5 +1,10 @@
 # screentreat
 
+## Version guide for Annals paper
+- Click on "version_guide_Annals.csv" to view the list of model versions stored in the GitHub repository and some distinguishing details.
+- The first column indicates the corresponding Results table in the Annals paper
+- The results contained in the Results tables in the Annals paper are taken from the output file "examples/[insert-model-version-name]/output/cuminc_mrr_newtable.csv"
+
 ## How to run and understand the models
 - Clone this repository to your local machine
 - Select a model to run locally (breast_ER-HER2_6 is the main model of the Annals paper)
